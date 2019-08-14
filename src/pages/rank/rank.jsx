@@ -3,6 +3,7 @@ import {Col, message, Row} from 'antd'
 import './rank.less'
 import {reqGetFirstRank, reqGetLastRank} from "../../api";
 import memoryUtils from "../../utils/memoryUtils";
+import storageUtils from "../../utils/storageUtils";
 
 export default class Rank extends Component{
 
@@ -12,7 +13,7 @@ export default class Rank extends Component{
     };
 
     getFirstRank = async () => {
-        const request = await reqGetFirstRank(339);
+        const request = await reqGetFirstRank(storageUtils.getPlace());
         if(request.error_code ===  19){
             const firsts  = request.data;
             this.setState({
@@ -25,7 +26,7 @@ export default class Rank extends Component{
     };
 
     getLastRank = async () => {
-        const request = await reqGetLastRank(339);
+        const request = await reqGetLastRank(storageUtils.getPlace());
         if(request.error_code ===  21){
             const lasts  = request.data;
             this.setState({

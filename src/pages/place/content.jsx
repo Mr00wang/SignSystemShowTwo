@@ -30,6 +30,17 @@ export default class Content extends Component{
         this.getUsers()
     }
 
+    /**
+     * 分房间
+     */
+    groupBy = (arr, property) => {
+        return arr.reduce(function(memo, x) {
+            if (!memo[x[property]]) { memo[x[property]] = []; }
+            memo[x[property]].push(x);
+            return memo;
+        }, {});
+    }
+
     sign = async (memberName,seat,state) => {
         //state状态为0为签到,为1为签退
         if(state === 0){
@@ -62,8 +73,11 @@ export default class Content extends Component{
     };
     render() {
         const {data} = this.state;
-        console.log(data);
-        if(data.length ===0 ){
+        const room = this.groupBy(data, 'room');
+        const room1 = room.room339;
+        console.log(room1)
+        //console.log(room1.length)
+        if(data.length === 0 ){
             console.log("数据为空")
         }else{
             var seat1 = data.find(item => item.seat===1);

@@ -21,7 +21,8 @@ class Login extends Component{
                 // console.log('提交登陆的ajax请求', values)
                 // 请求登陆
                 const {username, password,place} = values
-                memoryUtils.place = place
+                memoryUtils.place = place //保存房间号
+                storageUtils.savePlace(place) //保存在local中
                 const result = await reqLogin(username,password) // {status: 0, data: user}  {status: 1, msg: 'xxx'}
                 // console.log('请求成功', result)
                 //if(username==='admin' || password==='admin'){
