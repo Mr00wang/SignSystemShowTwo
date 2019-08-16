@@ -2,9 +2,12 @@ import React, {Component} from "react";
 import {reqGetSeat, reqSign, reqSignExit} from "../../api";
 import './content.less'
 import {message} from "antd";
+import storageUtils from "../../utils/storageUtils";
 export default class Content extends Component{
     state = {
         data:[],
+        //room1:[],
+        //room2:[],
         state:false,
     };
 
@@ -74,45 +77,107 @@ export default class Content extends Component{
     render() {
         const {data} = this.state;
         const room = this.groupBy(data, 'room');
-        const room1 = room.room339;
-        console.log(room1)
-        //console.log(room1.length)
-        if(data.length === 0 ){
-            console.log("数据为空")
+        //var room2  = new Array(room.room339);
+        var room1  = room.room338;
+        var room2  = room.room339;
+        //var room339 = new Object(room.room339);
+
+        /*room339.data.map(function (value, index, array) {
+            room1 = room1.concat(value);
+        });*/
+        // room1.push(room339);
+        console.log(room1);
+       // console.log(room339);
+
+        //console.log(data.length)
+       /* room.room339.forEach(function (value,key,ownerMap) {
+            console(key+":"+ ownerMap)
+
+        })*/
+
+       // room1.push(room.room339)
+        //room2.push(room.room339)
+       // console.log(room1.length)
+       // console.log(room1)
+
+        if(storageUtils.getPlace() === '338'){
+            if(room1 === undefined){
+                console.log("数据为空")
+            } else{
+
+                    var seat1 = room1.find(item => item.seat===1);
+                    var seat2 = room1.find(item => item.seat===2);
+                    var seat3 = room1.find(item => item.seat===3);
+                    var seat4 = room1.find(item => item.seat===4);
+                    var seat5 = room1.find(item => item.seat===5);
+                    var seat6 = room1.find(item => item.seat===6);
+                    var seat7 = room1.find(item => item.seat===7);
+                    var seat8 = room1.find(item => item.seat===8);
+                    var seat9 = room1.find(item => item.seat===9);
+                    var seat10 = room1.find(item => item.seat===10);
+                    var seat11 = room1.find(item => item.seat===11);
+                    var seat12 = room1.find(item => item.seat===12);
+                    var seat13 = room1.find(item => item.seat===13);
+                    var seat14 = room1.find(item => item.seat===14);
+                    var seat15 = room1.find(item => item.seat===15);
+                    var seat16 = room1.find(item => item.seat===16);
+                    var seat17 = room1.find(item => item.seat===17);
+                    var seat18 = room1.find(item => item.seat===18);
+                    var seat19 = room1.find(item => item.seat===19);
+                    var seat20 = room1.find(item => item.seat===20);
+                    var seat21 = room1.find(item => item.seat===21);
+                    var seat22 = room1.find(item => item.seat===22);
+                    var seat23 = room1.find(item => item.seat===23);
+                    var seat24 = room1.find(item => item.seat===24);
+                    var seat25 = room1.find(item => item.seat===25);
+                    var seat26 = room1.find(item => item.seat===26);
+                    var seat27 = room1.find(item => item.seat===27);
+                    var seat28 = room1.find(item => item.seat===28);
+                    var seat29 = room1.find(item => item.seat===29);
+                    var seat30 = room1.find(item => item.seat===30);
+                    var seat31 = room1.find(item => item.seat===31);
+                    var seat32 = room1.find(item => item.seat===32);
+                }
+            //339房间
         }else{
-            var seat1 = data.find(item => item.seat===1);
-            var seat2 = data.find(item => item.seat===2);
-            var seat3 = data.find(item => item.seat===3);
-            var seat4 = data.find(item => item.seat===4);
-            var seat5 = data.find(item => item.seat===5);
-            var seat6 = data.find(item => item.seat===6);
-            var seat7 = data.find(item => item.seat===7);
-            var seat8 = data.find(item => item.seat===8);
-            var seat9 = data.find(item => item.seat===9);
-            var seat10 = data.find(item => item.seat===10);
-            var seat11 = data.find(item => item.seat===11);
-            var seat12 = data.find(item => item.seat===12);
-            var seat13 = data.find(item => item.seat===13);
-            var seat14 = data.find(item => item.seat===14);
-            var seat15 = data.find(item => item.seat===15);
-            var seat16 = data.find(item => item.seat===16);
-            var seat17 = data.find(item => item.seat===17);
-            var seat18 = data.find(item => item.seat===18);
-            var seat19 = data.find(item => item.seat===19);
-            var seat20 = data.find(item => item.seat===20);
-            var seat21 = data.find(item => item.seat===21);
-            var seat22 = data.find(item => item.seat===22);
-            var seat23 = data.find(item => item.seat===23);
-            var seat24 = data.find(item => item.seat===24);
-            var seat25 = data.find(item => item.seat===25);
-            var seat26 = data.find(item => item.seat===26);
-            var seat27 = data.find(item => item.seat===27);
-            var seat28 = data.find(item => item.seat===28);
-            var seat29 = data.find(item => item.seat===29);
-            var seat30 = data.find(item => item.seat===30);
-            var seat31 = data.find(item => item.seat===31);
-            var seat32 = data.find(item => item.seat===32);
+            if(room2 === undefined ){
+                console.log("数据为空")
+            }else{
+                seat1 = room2.find(item => item.seat===1);
+                seat2 = room2.find(item => item.seat===2);
+                seat3 = room2.find(item => item.seat===3);
+                seat4 = room2.find(item => item.seat===4);
+                seat5 = room2.find(item => item.seat===5);
+                seat6 = room2.find(item => item.seat===6);
+                seat7 = room2.find(item => item.seat===7);
+                seat8 = room2.find(item => item.seat===8);
+                seat9 = room2.find(item => item.seat===9);
+                seat10 = room2.find(item => item.seat===10);
+                seat11 = room2.find(item => item.seat===11);
+                seat12 = room2.find(item => item.seat===12);
+                seat13 = room2.find(item => item.seat===13);
+                seat14 = room2.find(item => item.seat===14);
+                seat15 = room2.find(item => item.seat===15);
+                seat16 = room2.find(item => item.seat===16);
+                seat17 = room2.find(item => item.seat===17);
+                seat18 = room2.find(item => item.seat===18);
+                seat19 = room2.find(item => item.seat===19);
+                seat20 = room2.find(item => item.seat===20);
+                seat21 = room2.find(item => item.seat===21);
+                seat22 = room2.find(item => item.seat===22);
+                seat23 = room2.find(item => item.seat===23);
+                seat24 = room2.find(item => item.seat===24);
+                seat25 = room2.find(item => item.seat===25);
+                seat26 = room2.find(item => item.seat===26);
+                seat27 = room2.find(item => item.seat===27);
+                seat28 = room2.find(item => item.seat===28);
+                seat29 = room2.find(item => item.seat===29);
+                seat30 = room2.find(item => item.seat===30);
+                seat31 = room2.find(item => item.seat===31);
+                seat32 = room2.find(item => item.seat===32);
+            }
         }
+
         return(
             <div className="drawer-body">
 

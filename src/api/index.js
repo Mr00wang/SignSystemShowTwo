@@ -34,3 +34,12 @@ export const reqSign = (memberName) => ajax(BASE + '/CodingForFaceID_war/clickSi
 
 //点击签退接口
 export const reqSignExit = (memberName) => ajax(BASE + '/CodingForFaceID_war/clickSignOutServlet',{memberName},'POST');
+
+//扫脸签到接口
+export const reqFaceSign = (place,localAddress) => ajax(BASE + '/CodingForFaceID_war/judgingFaceExistAndSignInOrSignOutServlet',{place,localAddress},'POST');
+
+//扫脸签退接口
+export const reqFaceSignExit = (ConfirmationOrCancellation) => ajax(BASE + '/CodingForFaceID_war/judgingFaceExistAndSignInOrSignOutServlet',{ConfirmationOrCancellation},'POST');
+
+//定点签到接口
+export const reqTimeExit = () => ajax(BASE + '/CodingForFaceID_war/timingAllSignOutServlet');
