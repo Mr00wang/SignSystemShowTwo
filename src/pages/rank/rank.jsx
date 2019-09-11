@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import {Col, message, Row} from 'antd'
 import './rank.less'
 import {reqGetFirstRank, reqGetLastRank} from "../../api";
-import memoryUtils from "../../utils/memoryUtils";
 import storageUtils from "../../utils/storageUtils";
 
 export default class Rank extends Component{

@@ -86,7 +86,7 @@ export default class Content extends Component{
             room1 = room1.concat(value);
         });*/
         // room1.push(room339);
-        console.log(room1);
+        //console.log(room1);
        // console.log(room339);
 
         //console.log(data.length)

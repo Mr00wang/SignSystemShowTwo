@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import './inform.less'
 import {reqGetInform} from "../../api";
 import {message} from "antd";
-import memoryUtils from "../../utils/memoryUtils";
 import storageUtils from "../../utils/storageUtils";
 export default class Inform extends Component{
     state = {

@@ -15,31 +15,31 @@ export function reqLogin() {
     return ajax('/login', {username,password}, 'POST')
 }*/
 
-export const reqLogin = (username,password) => ajax(BASE+'/CodingForFaceID_war/loginServlet', {username,password}, 'POST');
+export const reqLogin = (username,password) => ajax(BASE+'/faceid_war/loginServlet', {username,password}, 'POST');
 
 //获取公告
-export const reqGetInform = (place) => ajax(BASE + '/CodingForFaceID_war/getNoticeMessageServlet',{place},'POST');
+export const reqGetInform = (place) => ajax(BASE + '/faceid_war/getNoticeMessageServlet',{place},'POST');
 
 //获取前三名接口
-export const reqGetFirstRank = (place) => ajax(BASE + '/CodingForFaceID_war/topThreeServlet',{place},'POST');
+export const reqGetFirstRank = (place) => ajax(BASE + '/faceid_war/topThreeServlet',{place},'POST');
 
 //获取后三名接口
-export const reqGetLastRank = (place) => ajax(BASE + '/CodingForFaceID_war/reciprocalThreeServlet',{place},'POST');
+export const reqGetLastRank = (place) => ajax(BASE + '/faceid_war/reciprocalThreeServlet',{place},'POST');
 
 //获取位置接口
-export const reqGetSeat = () => ajax(BASE + '/CodingForFaceID_war/getSeatMap');
+export const reqGetSeat = () => ajax(BASE + '/faceid_war/getSeatMap');
 
 //点击签到接口
-export const reqSign = (memberName) => ajax(BASE + '/CodingForFaceID_war/clickSignInServlet',{memberName},'POST');
+export const reqSign = (memberName) => ajax(BASE + '/faceid_war/clickSignInServlet',{memberName},'POST');
 
 //点击签退接口
-export const reqSignExit = (memberName) => ajax(BASE + '/CodingForFaceID_war/clickSignOutServlet',{memberName},'POST');
+export const reqSignExit = (memberName) => ajax(BASE + '/faceid_war/clickSignOutServlet',{memberName},'POST');
 
 //扫脸签到接口
-export const reqFaceSign = (place,localAddress) => ajax(BASE + '/CodingForFaceID_war/judgingFaceExistAndSignInOrSignOutServlet',{place,localAddress},'POST');
+export const reqFaceSign = (place,base64) => ajax(BASE + '/faceid_war/judgingFaceExistAndSignInOrSignOutServlet',{place,base64},'POST');
 
 //扫脸签退接口
-export const reqFaceSignExit = (ConfirmationOrCancellation) => ajax(BASE + '/CodingForFaceID_war/judgingFaceExistAndSignInOrSignOutServlet',{ConfirmationOrCancellation},'POST');
+export const reqFaceSignExit = (ConfirmationOrCancellation) => ajax(BASE + '/faceid_war/judgingFaceExistAndSignInOrSignOutServlet',{ConfirmationOrCancellation},'POST');
 
 //定点签到接口
-export const reqTimeExit = () => ajax(BASE + '/CodingForFaceID_war/timingAllSignOutServlet');
+export const reqTimeExit = () => ajax(BASE + '/faceid_war/timingAllSignOutServlet');
