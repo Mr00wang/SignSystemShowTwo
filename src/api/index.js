@@ -39,7 +39,7 @@ export const reqSignExit = (memberName) => ajax(BASE + '/faceid_war/clickSignOut
 export const reqFaceSign = (place,base64) => ajax(BASE + '/faceid_war/judgingFaceExistAndSignInOrSignOutServlet',{place,base64},'POST');
 
 //扫脸签退接口
-export const reqFaceSignExit = (ConfirmationOrCancellation) => ajax(BASE + '/faceid_war/judgingFaceExistAndSignInOrSignOutServlet',{ConfirmationOrCancellation},'POST');
+export const reqFaceSignExit = (ConfirmationOrCancellation) => ajax(BASE + '/faceid_war/judgingMemberSingOut',{ConfirmationOrCancellation},'POST');
 
 //定点签到接口
 export const reqTimeExit = () => ajax(BASE + '/faceid_war/timingAllSignOutServlet');
