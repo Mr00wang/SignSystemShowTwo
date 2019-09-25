@@ -13,25 +13,25 @@ export default class Inform extends Component{
 
     getInform = async () => {
 
-        const request = await reqGetInform(storageUtils.getPlace())
+        const request = await reqGetInform(storageUtils.getPlace());
         if(request.error_code === 17){
-            const inform = request.data
+            const inform = request.data;
             this.setState({
                 inform:inform
             })
 
         }else{
-            message.error(request.msg)
+            message.error(request.msg);
         }
     }
     render() {
-        const {inform} = this.state
-        const html = inform[0].content
+        const {inform} = this.state;
+        const inform1 = inform[0].content;
         return(
             <div className='inform'>
-                <h1>公 告</h1>
                 <div className='inform-content'>
-                    <span dangerouslySetInnerHTML={{__html: html}}></span>
+                    {/*<span dangerouslySetInnerHTML={{__html: html}}></span>*/}
+                    <span > <h1 style={{size:20}}>{inform1}</h1> </span>
                 </div>
 
             </div>

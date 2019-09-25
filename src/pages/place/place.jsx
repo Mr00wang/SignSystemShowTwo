@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Button, Drawer} from "antd";
+import {Button, Drawer,Icon} from "antd";
 import './place.less'
 import Content from "./content";
 export default class Place extends Component{
@@ -28,19 +28,36 @@ export default class Place extends Component{
     render() {
         return (
             <div className='place'>
-                <Button type="primary" onClick={this.showDrawer} >
-                    座 位 分 布
+                <Button type="primary" onMouseOver={this.showDrawer} >
+                    手动签到
                 </Button>
-                <Drawer
-                    title="座位分布"
-                    placement="top"
-                    height='540px'
-                    closable={false}
-                    onClose={this.onClose}
-                    visible={this.state.visible}
-                >
-                    <Content key={Math.random()}  ref={this.seat}/>
-                </Drawer>
+                <div style={{
+                    width:1024,
+                }}>
+                    <Drawer
+                        // bodyStyle={{backgroundColor:"red"}}
+                        title={
+                            <div style={{textAlign:'center'}}>
+                                <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" style={{width:20,height:20}}/>
+                                &nbsp;&nbsp;
+                                <span style={{fontSize:30}}>座 位 分 布</span>
+                                &nbsp;&nbsp;
+                                <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" />
+                            </div>
+
+                        }
+                        //width={450}
+                        // placement="top"
+                        // height='480px'
+                        placement="left"
+                        width="1280px"
+                        closable={true}
+                        onClose={this.onClose}
+                        visible={this.state.visible}
+                    >
+                        <Content key={Math.random()}  ref={this.seat}/>
+                    </Drawer>
+                </div>
             </div>
         );
     }

@@ -1,6 +1,6 @@
 /*企鹅大小设置*/
 :root {
-  --size:100px;
+  --size:150px;
 }
 
 body {
@@ -16,8 +16,8 @@ body {
   height: var(--size);
   background: #000;
   position: absolute;
-  top:8px;
-  left:55px;
+  top:46px;
+  left:140px;
   border-radius: 50% 50% 30% 30%;
   z-index: 10;
 }

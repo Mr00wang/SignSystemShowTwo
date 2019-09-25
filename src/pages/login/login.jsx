@@ -32,11 +32,11 @@ class Login extends Component{
                     message.success(result.msg)
 
                     // 保存user
-                    const user = result.data
+                    const user = result.data;
 
 
-                    memoryUtils.user = user // 保存在内存中
-                    storageUtils.saveUser(user) // 保存到local中
+                    memoryUtils.user = user ;// 保存在内存中
+                    storageUtils.saveUser(user); // 保存到local中
 
                     // 跳转到管理界面 (不需要再回退回到登陆)
                     this.props.history.replace('/')
@@ -53,9 +53,9 @@ class Login extends Component{
         });
 
         //得到form对象
-        const form = this.props.form
+        const form = this.props.form;
         //获取表单项的输入数据
-        const values = form.getFieldsValue()
+        const values = form.getFieldsValue();
         console.log('handleSubmit()',values)
     }
 
@@ -63,7 +63,7 @@ class Login extends Component{
     对密码进行自定义验证
      */
     validatePwd = (rule,value,callback) => {
-        console.log('validatePwd()',rule,value)
+        console.log('validatePwd()',rule,value);
         if(!value){
             callback('密码必须输入')
         }else if(value.length<3){
@@ -92,7 +92,7 @@ class Login extends Component{
             callback()
         }
         //callback(xxx) 验证失败，并指定提示的文本
-    }
+    };
 
     render() {
 
@@ -101,8 +101,8 @@ class Login extends Component{
         if(user){
             return <Redirect to='/'/>
         }*/
-        const form = this.props.form
-        const {getFieldDecorator} = form
+        const form = this.props.form;
+        const {getFieldDecorator} = form;
 
         return(
             <div className="login">
@@ -224,7 +224,7 @@ class Login extends Component{
 包装Form组件生成一个新的组件： Form(Login)
 新组件会向form组件传递一个强大的对象属性：form
  */
-const  WrapLogin = Form.create()(Login)
+const  WrapLogin = Form.create()(Login);
 export default WrapLogin
 
 /*
