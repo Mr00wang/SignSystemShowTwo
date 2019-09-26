@@ -13,7 +13,8 @@ module.exports = override(
         javascriptEnabled: true,
         modifyVars: {
             '@primary-color': '#78AFB9;',
-            '@table-header-bg':'transparent'
+            '@table-header-bg':'transparent',
+            '@drawer-header-padding': '36px 48px',
         },
 
     }),
