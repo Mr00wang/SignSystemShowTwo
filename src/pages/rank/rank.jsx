@@ -55,8 +55,8 @@ export default class Rank extends Component{
         //console.log(lasts[0].memberName)
         return(
             <div className="rank">
-                <h1 style={{fontSize:30,marginBottom:2,color:'orange',textShadow:"2px 2px 2px #fff",fontFamily:'幼圆'}}>累计时间排名</h1>
-                <div className="rank-content">
+                <h1 style={{fontSize:35,marginBottom:2,color:'orange',fontWeight:"bold"}}>累 计 时 间 排 名</h1>
+                <div className="rank-content" >
 
                     <Row span={15} className='rank-First'>
                         <Col className="rank-First0" >前三名</Col><br/>

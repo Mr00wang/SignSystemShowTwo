@@ -5,36 +5,39 @@ import logo from '../../assets/images/logo.png'
 import {reqLogin}from '../../api'
 import memoryUtils from "../../utils/memoryUtils";
 import storageUtils from "../../utils/storageUtils";
+import {Redirect} from 'react-router-dom';
 const Item = Form.Item; //不能写在import之前
 const {Option} = Select;
 /*
 登陆的路由组件
  */
 class Login extends Component{
+
+
     handleSubmit = (event) =>{
         //阻止事件的默认行为
-        event.preventDefault()
+        event.preventDefault();
 
         //对所有表单字段进行校验
         this.props.form.validateFields(async (err, values) => {
             if (!err) {
                 // console.log('提交登陆的ajax请求', values)
                 // 请求登陆
-                const {username, password,place} = values
-                memoryUtils.place = place //保存房间号
-                storageUtils.savePlace(place) //保存在local中
-                const result = await reqLogin(username,password) // {status: 0, data: user}  {status: 1, msg: 'xxx'}
+                const {username, password,place} = values;
+
+                const result = await reqLogin(username,password); // {status: 0, data: user}  {status: 1, msg: 'xxx'}
                 // console.log('请求成功', result)
                 //if(username==='admin' || password==='admin'){
                 if(result.error_code===0){
 
                     // 提示登陆成功
-                    message.success(result.msg)
+                    message.success(result.msg);
 
                     // 保存user
                     const user = result.data;
 
-
+                    memoryUtils.place = place; //保存房间号
+                    storageUtils.savePlace(place); //保存在local中
                     memoryUtils.user = user ;// 保存在内存中
                     storageUtils.saveUser(user); // 保存到local中
 
@@ -46,7 +49,6 @@ class Login extends Component{
                     message.error(result.msg)
                 }
 
-
             }else{
                 console.log("校验失败！")
             }
@@ -56,8 +58,7 @@ class Login extends Component{
         const form = this.props.form;
         //获取表单项的输入数据
         const values = form.getFieldsValue();
-        console.log('handleSubmit()',values)
-    }
+    };
 
     /*
     对密码进行自定义验证
@@ -76,7 +77,7 @@ class Login extends Component{
             callback()
         }
         //callback(xxx) 验证失败，并指定提示的文本
-    }
+    };
 
     validateUser = (rule,value,callback) => {
         console.log('validateUser()',rule,value)
@@ -97,10 +98,11 @@ class Login extends Component{
     render() {
 
         //如果用户已经登陆，自动跳转到管理界面
-        /*const user = memoryUtils.user
-        if(user){
+        const user = memoryUtils.user;
+        const place = memoryUtils.place;
+        if(user && place){
             return <Redirect to='/'/>
-        }*/
+        }
         const form = this.props.form;
         const {getFieldDecorator} = form;
 

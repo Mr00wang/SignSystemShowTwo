@@ -42,7 +42,10 @@ export const reqFaceSign = (place,base64) => ajax(BASE + '/faceid_war/judgingFac
 export const reqFaceSignExit = (ConfirmationOrCancellation) => ajax(BASE + '/faceid_war/judgingMemberSingOut',{ConfirmationOrCancellation},'POST');
 
 //定点签到接口
-export const reqTimeExit = () => ajax(BASE + '/faceid_war/graphPersonSignTimes');
+export const reqTimeExit = () => ajax(BASE + '/faceid_war/timingAllSignOutServlet');
 
 //签到记录接口
 export const reqGetRecord = (place) => ajax(BASE + '/faceid_war/fiveRecord',{place},'POST');
+
+//获取在线人员
+export const reqOnline = () => ajax(BASE + '/faceid_war/onlineListServlet');

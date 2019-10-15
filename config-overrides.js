@@ -14,7 +14,7 @@ module.exports = override(
         modifyVars: {
             '@primary-color': '#78AFB9;',
             '@table-header-bg':'transparent',
-            '@drawer-header-padding': '36px 48px',
+            '@drawer-header-padding': '48px 16px',
         },
 
     }),

@@ -8,6 +8,7 @@ import {Col,Row }from "antd";
 import Inform from "../inform/inform";
 import Time from "../time/time";
 import Place from "../place/place";
+import storageUtils from "../../utils/storageUtils";
 
 /*
 后台管理的路由组件
@@ -15,8 +16,15 @@ import Place from "../place/place";
 export default class Admin extends Component{
 
     render() {
-        const user = memoryUtils.user;
-        if(!user){
+        /*const user = memoryUtils.user;
+        const place = memoryUtils.place;*/
+        const user = storageUtils.getUser();
+        const place = storageUtils.getPlace();
+        const key1 = Object.keys(user);
+        const key2 = Object.keys(place);
+
+        console.log(user+'...'+place);
+        if(key1.length===0 || key2.length===0){
             return <Redirect to='/login' />
         }
         return (

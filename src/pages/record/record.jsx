@@ -1,11 +1,13 @@
 import React,{Component} from "react";
-import {reqGetRecord} from "../../api";
+import {reqGetRecord, reqTimeExit} from "../../api";
 import {message, Table} from "antd";
 import storageUtils from "../../utils/storageUtils";
 import "./record.less"
+import {formateDate, formateDate1} from "../../utils/dateUtils";
 export class Record extends Component {
     state = {
       records:[],
+        currentTime: formateDate1(Date.now()),//当前时间字符串
     };
     /*
     初始化Table所有列的数组
@@ -33,11 +35,48 @@ export class Record extends Component {
         ]
     };
 
+    getTimeAllExit = async () => {
+        const request = await reqTimeExit();
+        if(request.error_code === 27){
+            message.success("系统已自动签退!")
+        }
+    };
+
+    getTime = () => {
+        this.intervalId = setInterval(() => {
+            const currentTime = formateDate1(Date.now());
+            const currentTime1 = formateDate(Date.now());
+            this.setState({currentTime},
+                () => {
+                    if(currentTime1 === '12:00:00'){
+                        this.getTimeAllExit()
+                    }else if(currentTime1 === '22:30:00'){
+                        this.getTimeAllExit()
+                    }
+                })
+        },1000);
+
+
+    };
+
+    /**
+     第一次render（）之后执行一次
+     一般在此执行异步操作： 发ajax请求启动定时器
+     */
+
     /*
     为第一次render()准备数据
      */
-    componentWillMount() {
-        this.initColumns()
+    componentWillMount()
+        {
+        this.initColumns();
+
+    }
+
+    componentWillUnmount ()
+        {
+        // 清除定时器
+        clearInterval(this.intervalId);
     }
     time = setInterval(this.getRecord = async () => {
         const result = await reqGetRecord(storageUtils.getPlace());
@@ -53,14 +92,15 @@ export class Record extends Component {
     },1000);
 
     componentDidMount() {
-        this.getRecord()
+        this.getRecord();
+        this.getTime()
     }
 
     render() {
         const {records} = this.state;
         return(
             <div className="record">
-                <h1 style={{fontSize:30,marginBottom:2,color:'orange',textShadow:"2px 2px 2px #fff"}}>签到记录</h1>
+                <h1 style={{fontSize:35,marginBottom:2,color:'orange'}}>签 到 记 录</h1>
                 <Table
                     bordered={true}
                     rowKey='id'

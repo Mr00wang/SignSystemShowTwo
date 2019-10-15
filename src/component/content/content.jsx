@@ -11,9 +11,9 @@ export default class Content extends Component{
                 <Row className='content-top'>
                     <Camera/>
                 </Row>
-                <br/>
+                <br/><br/>
                 <hr size="10"/>
-                <br/>
+                <br/><br/>
                 <Row className='content-center'>
                     <Col span={12}>
                         <Record/>

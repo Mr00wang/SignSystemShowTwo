@@ -27,7 +27,9 @@ export default class Place extends Component{
 
     render() {
         return (
+
             <div className='place'>
+
                 <Button type="primary" onMouseOver={this.showDrawer} >
                     手动签到
                 </Button>
@@ -35,7 +37,7 @@ export default class Place extends Component{
                     width:1024,
                 }}>
                     <Drawer
-                        // bodyStyle={{backgroundColor:"red"}}
+                        bodyStyle={{backgroundColor:"rgb(205,227,244)"}}
                         title={
                             <div style={{textAlign:'center'}}>
                                 <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" style={{width:20,height:20}}/>
@@ -50,7 +52,7 @@ export default class Place extends Component{
                         // placement="top"
                         // height='480px'
                         placement="left"
-                        width="1280px"
+                        width="1560px"
                         closable={true}
                         onClose={this.onClose}
                         visible={this.state.visible}

@@ -39,6 +39,14 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://10.85.16.9:8080"
+  "proxy": "http://10.85.16.9:8080",
 
+  "permissions": {
+    "audio-capture": {
+      "description": "Required to capture audio using getUserMedia()"
+    },
+    "video-capture": {
+      "description": "Required to capture video using getUserMedia()"
+    }
+  }
 }

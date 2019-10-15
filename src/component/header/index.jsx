@@ -8,7 +8,7 @@ class Header extends Component{
     render() {
         return(
             <div className="header">
-                <div style={{fontSize:45,marginTop:10,fontFamily:'幼圆',color:'orange',fontStyle:'bold',textShadow:"5px 2px 2px #fff"}}>软 件 创 新 基 地 签 到 系 统</div>
+                <div style={{fontSize:50,marginTop:10,color:'orange',fontStyle:'bold'}}>软 件 创 新 基 地 签 到 系 统</div>
 
             </div>
         )
